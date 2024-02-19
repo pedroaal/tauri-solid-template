@@ -1,5 +1,5 @@
 import { type JSX } from 'solid-js'
-export const ALERT_TIMEOUT = 5000
+export const ALERT_TIMEOUT = 3000
 
 export interface IIcon {
   path: JSX.Element

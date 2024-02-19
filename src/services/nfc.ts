@@ -1,19 +1,10 @@
-import { invoke } from '@tauri-apps/api/core'
+import { isAvailable, scan, textRecord, write } from '@tauri-apps/plugin-nfc'
 
-export const checkNFC = async (): Promise<boolean> => {
-  console.log('Checking NFC...')
-  await invoke('nfc_check')
-  return true
-}
+export const checkNFC = async (): Promise<boolean> => await isAvailable()
 
-export const readNFC = async () => {
-  console.log('Reading NFC...')
-  await invoke('nfc_read')
-  return true
-}
+export const readNFC = async () =>
+  await scan({ type: 'tag', keepSessionAlive: true })
 
 export const writeNFC = async () => {
-  console.log('Writing NFC...')
-  await invoke('nfc_write')
-  return true
+  await write([textRecord('Tauri is awesome!')])
 }

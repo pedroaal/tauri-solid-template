@@ -14,20 +14,26 @@ const Reader: Component = () => {
   const [isDisabled, setIsDisabled] = createSignal(false)
 
   createEffect(() => {
-    const hasNFC = checkNFC()
-    if (!hasNFC) {
-      addAlert({
-        id: 'nfc-not-supported',
-        type: 'error',
-        message: 'NFC is not supported on this device',
+    checkNFC()
+      .then((hasNFC) => {
+        if (!hasNFC) {
+          addAlert({
+            id: 'nfc-not-supported',
+            type: 'error',
+            message: 'NFC is not supported on this device',
+          })
+          setIsDisabled(true)
+        }
       })
-      setIsDisabled(true)
-    }
+      .catch((error) => {
+        console.error(`Argh! ${error}`)
+      })
   })
 
   const handleRead = (): void => {
     readNFC()
       .then((studentId) => {
+        console.log('🚀 ~ .then ~ studentId:', studentId)
         if (studentId != null) {
           navigate(ROUTES.STUDENT.replace(':id', studentId))
         }

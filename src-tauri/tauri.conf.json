@@ -1,5 +1,5 @@
 {
-  "productName": "nfc-students",
+  "productName": "Project name",
   "version": "0.0.0",
   "identifier": "com.tauri.dev",
   "build": {
@@ -13,7 +13,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "nfc-students",
+        "title": "Project name",
         "width": 800,
         "height": 600
       }

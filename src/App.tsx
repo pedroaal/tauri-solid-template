@@ -1,14 +1,14 @@
-import { type Component } from "solid-js";
-import { Route, Router } from "@solidjs/router";
+import { type Component } from 'solid-js'
+import { Route, Router } from '@solidjs/router'
 
-import { ROUTES } from "./constants/routes";
-import { CoreProvider } from "./context/core.context";
-import { AuthProvider } from "./context/auth.context";
+import { ROUTES } from './constants/routes'
+import { CoreProvider } from './context/core.context'
+import { AuthProvider } from './context/auth.context'
 
-import Loader from "./components/Loader";
-import Alerts from "./components/Alerts";
-import HomePage from "./pages/HomePage";
-import Protected from "./components/Protected";
+import Loader from './components/Loader'
+import Alerts from './components/Alerts'
+import HomePage from './pages/HomePage'
+import Protected from './components/Protected'
 
 const App: Component = () => (
   <CoreProvider>
@@ -26,6 +26,6 @@ const App: Component = () => (
       </div>
     </AuthProvider>
   </CoreProvider>
-);
+)
 
-export default App;
+export default App

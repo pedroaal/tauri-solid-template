@@ -1,4 +1,4 @@
-import { type Component, For, Show, createEffect } from 'solid-js'
+import { type Component, For, Show } from 'solid-js'
 import { Icon } from 'solid-heroicons'
 import {
   checkCircle,
@@ -18,10 +18,6 @@ interface IConfig {
 const Alerts: Component = () => {
   const { alerts } = useCore()
 
-  createEffect(() => {
-    console.log(alerts())
-  })
-
   const getConfig = (type: string): IConfig => {
     switch (type) {
       case 'success':
@@ -37,7 +33,7 @@ const Alerts: Component = () => {
 
   return (
     <Show when={alerts().length > 0}>
-      <div class="w-full md:w-1/2 fixed top-0 right-0 overflow-y-auto z-50">
+      <div class="fixed right-0 top-0 z-50 w-full overflow-y-auto md:w-1/2">
         <div class="flex flex-col gap-4 p-4">
           <For each={alerts()}>
             {(alert) => {
@@ -45,7 +41,7 @@ const Alerts: Component = () => {
 
               return (
                 <div class={`alert ${color}`} role="alert">
-                  <Icon path={icon} class={`w-5 h-5`} />
+                  <Icon path={icon} class={`h-5 w-5`} />
                   <div class="flex flex-col gap-2">
                     <span>{alert.message}</span>
                     <Show when={alert.description}>

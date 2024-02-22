@@ -1,11 +1,9 @@
-import { type Component } from "solid-js";
+import { type Component } from 'solid-js'
 
-const HomePage: Component = () => {
-  return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
-  );
-};
+const HomePage: Component = () => (
+  <div>
+    <h1>HomePage</h1>
+  </div>
+)
 
-export default HomePage;
+export default HomePage
